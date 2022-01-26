@@ -49,6 +49,11 @@ function showResults(){
         else{
             answersContainers[questionNumber].style.color = 'red';
         }
+
+        
+
+
+
     });
 
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
@@ -75,8 +80,6 @@ function showSlide(n) {
     }
 
 }
-
-
 
 
 function showNextSlide() {
@@ -150,6 +153,7 @@ buildQuiz();
 const previousButton = document.getElementById('previous');
 const nextButton = document.getElementById('next');
 const slides = document.querySelectorAll(".slide");
+const startTime = document.getElementById("startClock");
 let currentSlide = 0;
 
 showSlide(currentSlide);
@@ -158,3 +162,18 @@ showSlide(currentSlide);
 submitButton.addEventListener('click', showResults);
 previousButton.addEventListener('click', showPreviousSlide);
 nextButton.addEventListener('click', showNextSlide);
+startTime.addEventListener('click', setInterval);
+    
+  
+    var count = 10;
+    var interval = setInterval(function(){
+      document.getElementById('count').innerHTML=count;
+      count--;
+        if (count === -2){
+        clearInterval(interval);
+        document.getElementById('count').innerHTML='Done';
+        // or...
+        alert("You're out of time!");
+        
+      }
+    }, 1000);
