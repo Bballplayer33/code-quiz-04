@@ -98,53 +98,53 @@ const submitButton = document.getElementById('submit');
 // Questions
 const myQuestions = [
     {
-    question: "Commonly used data types DO NOT include:",
+    question: "Where is the correct place to insert a JavaScript?",
     answers: {
-        1: "Strings",
-        2: "Booleans",
-        3: "Alerts",
-        4: "Numbers"},
-        correctAnswer: "3"
+        1: "The <head> section",
+        2: "The <body> section",
+        3: "Both the <head> and the <body> sections",
+        4: "In the .css file"},
+        correctAnswer: "2"
 },
 {
-  question: "The condition in an if / else statment is enclosed within ______.",
+  question: "How do you create a function in JavaScript?",
   answers: {
-      1: "Quotes",
-      2: "Curly Brackets",
-      3: "Parenthisis",
-      4: "Square Brackets",
+      1: "function = myFunction()",
+      2: "function:myFunction()",
+      3: "function myFunction()",
+      4: "function + myFunction()",
+  },
+  correctAnswer: "1"
+},
+{
+  question: "How to write an IF statement in JavaScript?",
+  answers: {
+      1: "if i === 5 then",
+      2: "if(i=== 5)",
+      3: "if i = 5",
+      4: "if - = 5 then"
   },
   correctAnswer: "2"
 },
 {
-  question: "Arrays in JavaScript can be used to store _____.",
+  question: "How do you declare a JavaScript variable?",
   answers: {
-      1: "Numbers and Strings",
-      2: "Other Arrays",
-      3: "Booleans",
-      4: "All of the Above"
+      1: "var + carName",
+      2: "v carName",
+      3: "variable carName",
+      4: "Var carName"
   },
   correctAnswer: "4"
 },
 {
-  question: "String values must be enclosed within ______ when being assigned to variables.",
+  question: "Which operator is used to assign a value to a variable?",
   answers: {
-      1: "Commas",
-      2: "Curly Brackets",
-      3: "Quotas",
-      4: "Parenthisis"
+      1: "*",
+      2: "-",
+      3: "=",
+      4: "x"
   },
   correctAnswer: "3"
-},
-{
-  question: "A very useful tool used during development an debugging for printing content to the debugger is?",
-  answers: {
-      1: "JavaScript",
-      2: "Terminal/bash",
-      3: "for Loops",
-      4: "Console Log"
-  },
-  correctAnswer: "4"
 }];
 
 buildQuiz();
@@ -172,8 +172,14 @@ startTime.addEventListener('click', setInterval);
         if (count === -2){
         clearInterval(interval);
         document.getElementById('count').innerHTML='Done';
-        // or...
-        alert("You're out of time!");
-        
-      }
+}
     }, 1000);
+
+    localStorage.setItem("answerContainers", JSON.stringify(answersContainers));
+    renderMessage();
+
+
+    function renderMessage() {
+        var lastScore = JSON.parse(localStorage.getItem("answerContainers"))
+        document.querySelector(".high").textContent = `${numCorrect} out of ${myQuestions.length}`;
+    }
