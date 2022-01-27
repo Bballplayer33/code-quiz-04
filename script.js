@@ -165,7 +165,7 @@ nextButton.addEventListener('click', showNextSlide);
 startTime.addEventListener('click', setInterval);
     
   
-    var count = 10;
+    var count = 20;
     var interval = setInterval(function(){
       document.getElementById('count').innerHTML=count;
       count--;
