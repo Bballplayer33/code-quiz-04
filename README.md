@@ -1,4 +1,4 @@
-# code-quiz-04
+# Code-Quiz-04
 
 ## Discribtion
   The objective of this project was to create a javaScript quiz with a countdown timer, questions that appear when answered, time subtracted when the answer is incorect, game over when timer reaches 0 and you can save your score. 
@@ -10,7 +10,7 @@
 ![alt text](screens/html-div.png)
 * the html that has id's and class's for the quiz and buttons 
 
-![alt text](screens/nxt/pre-func.png)
+![alt text](screens/nxt-pre-func.png)
 * creates the functions for the next and previous arrows
 
 ![alt text](screens/show-results-func.png)
